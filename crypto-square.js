@@ -10,7 +10,7 @@ export class Crypto {
 
   normalizePlaintext() {
     const normalized = this.plaintext.toLowerCase().replace(/[^a-z0-9]+/g, '')
-    return normalized.replace(/\s+/g, '')
+    return normalized
   }
 
   size() {
@@ -35,10 +35,9 @@ export class Crypto {
   ciphertext() {
     const seg = this.plaintextSegments()
     const c = this.size()
-    const r = seg.length
     const ciphered = []
       for(let i = 0; i < c; i++){
-          for(let i2 = 0; i2 < r; i2++){
+          for(let i2 = 0; i2 < seg.length; i2++){
             ciphered.push(seg[i2].slice(i, (i+1))) 
           }
       }
